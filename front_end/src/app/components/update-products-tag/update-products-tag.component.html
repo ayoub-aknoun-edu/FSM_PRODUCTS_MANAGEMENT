@@ -1,0 +1,79 @@
+<mat-card>
+  <mat-card-content style="justify-content: center">
+    <mat-card-header>
+      <h1>Select New Super Tag</h1>
+    </mat-card-header>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>{{ single_product.tag.superTag.name }}</mat-label>
+      <mat-select
+        placeholder="Select super tag"
+        [(ngModel)]="selectedSuperTagName"
+      >
+        <mat-option
+          *ngFor="let superTag of superTags"
+          [value]="superTag.name"
+          >{{ superTag.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button
+        style="margin-right: 25px; font-size: 1.2em"
+        mat-button
+        mat-raised-button
+        (click)="onNoClick()"
+      >
+        Cancel
+      </button>
+      <button
+        style="font-size: 1.2em"
+        mat-button
+        (click)="updateTagOptions()"
+        mat-raised-button
+        color="accent"
+        [disabled]="!selectedSuperTagName"
+      >
+        Next
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="showTagSelection">
+  <mat-card-content>
+    <mat-card-header>
+      <h1>Select New Tag</h1>
+    </mat-card-header>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Tag Name</mat-label>
+      <mat-select
+        required=""
+        (selectionChange)="onTagSelectionChange($event.value)"
+      >
+        <mat-option *ngFor="let tag of tagOptions" [value]="tag.name">{{
+          tag.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button
+        style="margin-right: 25px; font-size: 1.2em"
+        mat-button
+        mat-raised-button
+        (click)="onNoClick()"
+      >
+        Cancel
+      </button>
+      <button
+        style="font-size: 1.2em"
+        mat-button
+        mat-raised-button
+        color="accent"
+        (click)="applyChanges()"
+        [disabled]="!selectedtag"
+      >
+        Apply
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,53 @@
+<h2 style="text-align: center">Add Release Form</h2>
+<mat-stepper orientation="vertical">
+  <!--step 1-->
+  <mat-step [stepControl]="ReleaseForm">
+    <ng-template matStepLabel>Step 1</ng-template>
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Tag Name</mat-label>
+      <mat-select
+        required=""
+        [(ngModel)]="selectedTagName"
+        (selectionChange)="onTagSelected()"
+      >
+        <mat-option *ngFor="let tag of tags" [value]="tag.name">
+          {{ tag.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!--buttons-->
+    <div>
+      <button
+        style="font-size: 1.2em"
+        mat-button
+        matStepperNext
+        mat-raised-button
+        color="accent"
+      >
+        Next
+      </button>
+    </div>
+  </mat-step>
+
+  <!--step 2-->
+ <mat-step>
+  <form [formGroup]="ReleaseForm">
+    <ng-template matStepLabel>Step 2</ng-template>
+    <div *ngFor="let product of productsArray?.controls; let i = index">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-checkbox class="example-margin" formControlName="{{i}}.tag">Add</mat-checkbox>
+          <mat-label>Product's Reference</mat-label>
+          <input matInput [value]="product.get('reference')?.value" readonly="" />
+        </mat-form-field>
+        <div *ngIf="product.get('tag')?.value">
+          <mat-form-field appearance="fill">
+            <input matInput type="number" formControlName="{{i}}.quantity" placeholder="Quantity" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-step>
+  <!--step 3-->
+</mat-stepper>

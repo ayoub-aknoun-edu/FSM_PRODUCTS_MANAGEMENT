@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+  max-height: 90vh; /* Adjust the maximum height as needed */
+  overflow-y: auto;
+}
+
+.form-fields-container {
+  display: flex;
+}
+
+.custom-field {
+  margin-right: 30px;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid #868080; /* Define the style of the horizontal line */
+  margin: 10px 10px; /* Adjust the margin around the line as needed */
+  height: 3px; /* Set the height of the line */
+  width: 100%; /* Make the line span the entire width */
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.disabled-chip {
+  pointer-events: none;
+  opacity: 1; /* or any desired opacity */
+}

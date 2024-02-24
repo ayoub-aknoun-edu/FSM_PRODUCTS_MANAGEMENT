@@ -1,0 +1,244 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-header>
+      <h1>{{ single_product.reference }}</h1>
+    </mat-card-header>
+    <form class="example-form">
+      <ng-container>
+        <mat-card>
+          <mat-card-content>
+            <!--Name field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Name:</mat-label>
+              <input
+                [(ngModel)]="single_product.name"
+                name="name"
+                matInput
+                placeholder="enter name"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Reference field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Reference:</mat-label>
+              <input
+                [(ngModel)]="single_product.reference"
+                name="reference"
+                matInput
+                placeholder="reference"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Ev_Number field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Ev_Number: </mat-label>
+              <input
+                [(ngModel)]="single_product.ev_number"
+                name="ev_number"
+                matInput
+                placeholder="ev_number"
+                readonly=""
+              />
+            </mat-form-field>
+            <!--Warehouse field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Warehouse: </mat-label>
+              <input
+                [(ngModel)]="single_product.warehouse"
+                name="warehouse"
+                matInput
+                placeholder="warehouse"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Supplier field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Supplier: </mat-label>
+              <input
+                [(ngModel)]="single_product.supplier"
+                name="supplier"
+                matInput
+                placeholder="supplier"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Quantity field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Received Quantity: </mat-label>
+              <input
+                [(ngModel)]="single_product.quantity"
+                name="received_quantity"
+                matInput
+                placeholder="received quantity"
+                positiveInteger
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+
+      <mat-card-header>
+        <h1>Technical Sheet</h1>
+      </mat-card-header>
+      <ng-container>
+        <mat-card>
+          <mat-card-content>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <!--Weight field-->
+              <mat-label>Weight:</mat-label>
+              <input
+                [(ngModel)]="single_product.technicalSheet.weight"
+                name="weight"
+                matInput
+                placeholder="weight"
+                positiveInteger
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Dimensions field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Dimensions:</mat-label>
+              <input
+                [(ngModel)]="single_product.technicalSheet.dimensions"
+                name="dimensions"
+                matInput
+                placeholder="dimensions"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+
+            <!--Colors field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>colors:</mat-label>
+              <input
+                [(ngModel)]="single_product.technicalSheet.color"
+                name="colors"
+                matInput
+                placeholder="colors"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+            <!--Warning field-->
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>warnings:</mat-label>
+              <input
+                [(ngModel)]="single_product.technicalSheet.warnings"
+                name="warnings"
+                matInput
+                placeholder="warnings"
+                [readonly]="!ks.getUserRoles().includes('ADMIN')"
+              />
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+
+      <mat-card-header>
+        <h1>Accessories</h1>
+      </mat-card-header>
+
+      <div *ngIf="single_product.accessories.length == 0">No Accessories</div>
+      <ng-container
+        *ngFor="let accessory of single_product.accessories; let i = index"
+      >
+        <mat-card>
+          <mat-card-content>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Accessory Name:</mat-label>
+              <input
+                [(ngModel)]="accessory.name"
+                name="accessoryName"
+                matInput
+                placeholder="Enter accessory name"
+                readonly=""
+              />
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+
+      <mat-card-header>
+        <h1>Documents</h1>
+      </mat-card-header>
+      <div *ngIf="single_product.documents.length == 0">No Documents</div>
+      <ng-container
+        *ngFor="let document of single_product.documents; let i = index"
+      >
+        <mat-card>
+          <mat-card-content>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Document {{ i + 1 }} Name:</mat-label>
+              <input
+                [(ngModel)]="document.name"
+                name="documentName"
+                matInput
+                placeholder="Enter document name"
+                readonly=""
+              />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Document {{ i + 1 }} URL:</mat-label>
+              <input
+                [(ngModel)]="document.url"
+                name="documentUrl"
+                matInput
+                placeholder="Enter document URL"
+                readonly=""
+              />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="example-full-width">
+              <mat-label>Document {{ i + 1 }} Type:</mat-label>
+              <input
+                [(ngModel)]="document.type"
+                name="documentType"
+                matInput
+                placeholder="Enter document type"
+                readonly=""
+              />
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+      <mat-card-header>
+        <h1>Tag</h1>
+      </mat-card-header>
+      <mat-card>
+        <mat-card-content>
+          <mat-chip-listbox
+            aria-label="tag selection"
+            style="margin-bottom: 25px"
+            [ngClass]="{ 'disabled-chip': true }"
+          >
+            <mat-chip-option color="accent">
+              {{ single_product?.tag.name }}
+            </mat-chip-option>
+          </mat-chip-listbox>
+        </mat-card-content>
+      </mat-card>
+
+      <div
+        style="margin-top: 30px; display: flex; justify-content: space-between"
+      >
+        <button
+          style="margin-right: 30px"
+          mat-button
+          mat-dialog-close
+          mat-raised-button
+          color="accent"
+        >
+          Close
+        </button>
+        <button
+          (click)="openConfirmationDialog()"
+          mat-button
+          mat-raised-button
+          color="primary"
+          *ngIf="ks.getUserRoles().includes('ADMIN')"
+        >
+          Update
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

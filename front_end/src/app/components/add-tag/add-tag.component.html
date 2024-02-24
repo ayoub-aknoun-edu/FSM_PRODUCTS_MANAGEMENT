@@ -1,0 +1,51 @@
+<mat-card class="mat-card-container">
+  <mat-card-content>
+    <mat-card-header style="justify-content: center">
+      <h1>Add New Tag</h1>
+    </mat-card-header>
+    <form [formGroup]="TagForm">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          placeholder="Tag Name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field
+        style="margin-left: 20px; margin-right: 20px"
+        appearance="fill"
+        class="example-full-width"
+      >
+        <mat-label>Minimun Quantity</mat-label>
+        <input
+          formControlName="min_quantity"
+          matInput
+          placeholder="Minimun Quantity"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button
+          style="font-size: 1.2em"
+          mat-raised-button
+          mat-dialog-close
+          mat-raised-button
+        >
+          Close
+        </button>
+        <button
+          style="margin-left: 25px; font-size: 1.2em"
+          mat-raised-button
+          color="accent"
+          [disabled]="!TagForm.valid"
+          (click)="submitTag()"
+          
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

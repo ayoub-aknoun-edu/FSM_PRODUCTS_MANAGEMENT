@@ -1,0 +1,29 @@
+<div *ngIf="tags.length > 0" class="example-container">
+  <mat-card
+    style="margin-right: 10px"
+    *ngFor="let tag of tags"
+    class="example-card"
+  >
+    <mat-card-header
+      style="
+        width: 200px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <mat-card-title (click)="onTagCardClick(tag)">{{
+        tag.name
+      }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions style="justify-content: center">
+      <button *ngIf="ks.getUserRoles().includes('ADMIN')" mat-raised-button (click)="displayTagHistory(tag.name)">
+        Display History
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div *ngIf="tags.length === 0">
+  <p>No Tags available.</p>
+</div>

@@ -1,0 +1,73 @@
+<!-- display-products.component.html -->
+<div class="filter-container">
+  <mat-form-field>
+    <input matInput placeholder="Filter" (keyup)="applyFilter($event)" />
+  </mat-form-field>
+</div>
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Product Id Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      {{ product.id }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Reference Column -->
+  <ng-container matColumnDef="reference">
+    <mat-header-cell *matHeaderCellDef> Reference </mat-header-cell>
+    <mat-cell
+      (click)="DisplayProductDetails(product.reference)"
+      *matCellDef="let product"
+    >
+      {{ product.reference }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Supplier Column -->
+  <ng-container matColumnDef="supplier">
+    <mat-header-cell *matHeaderCellDef> Supplier </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.supplier }} </mat-cell>
+  </ng-container>
+
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      {{ product.quantity }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column (You can customize this as needed) -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      <!-- Add any actions buttons/icons here -->
+      <button *ngIf="ks.getUserRoles().includes('ADMIN')"
+        mat-icon-button
+        (click)="displayProductHistory(product.reference)"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
+
+<div *ngIf="products.length === 0">
+  <p>No products available for the selected tag.</p>
+</div>

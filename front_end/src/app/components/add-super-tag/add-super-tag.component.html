@@ -1,0 +1,38 @@
+<mat-card class="mat-card-container">
+  <mat-card-content>
+    <mat-card-header>
+      <h1>Add New Super Tag</h1>
+    </mat-card-header>
+    <form [formGroup]="superTagForm">
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          matInput
+          placeholder="Super Tag Name"
+          required
+        />
+      </mat-form-field>
+      <div>
+        <button
+          style="font-size: 1.2em"
+          mat-raised-button
+          mat-dialog-close
+          mat-raised-button
+          (click)="refreshPage()"
+        >
+          Close
+        </button>
+        <button
+          style="margin-left: 25px; font-size: 1.2em"
+          mat-raised-button
+          color="accent"
+          (click)="submitSuperTag()"
+          [disabled]="!superTagForm.valid"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

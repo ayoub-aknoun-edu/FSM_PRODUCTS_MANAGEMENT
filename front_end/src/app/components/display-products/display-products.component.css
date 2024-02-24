@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+}
+
+
+/* display-products.component.css */
+
+.filter-container {
+  margin-bottom: 16px; /* Add some margin to separate the filter input */
+}
+
+.mat-column-id,
+.mat-column-reference,
+.mat-column-name,
+.mat-column-supplier,
+.mat-column-quantity,
+.mat-column-actions {
+  max-width: 200px; /* Adjust the max-width based on your preference */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-cell {
+  padding: 8px; /* Add padding to cells for better spacing */
+}
+
+.mat-header-cell {
+  font-weight: bold;
+}
+
+/* Add any additional styling as needed */

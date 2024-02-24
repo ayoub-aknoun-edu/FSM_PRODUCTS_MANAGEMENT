@@ -1,0 +1,35 @@
+ziid hadi .mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
+}
+
+.full-with {
+  width: 100%;
+}
+
+.btn-forward {
+  background-color: #ad1f5f;
+  padding: 5px 10px;
+  border-radius: 0.9em;
+  color: white !important;
+}
+
+.btn-backward {
+  background-color: #ad1f5f;
+  padding: 5px 10px;
+  border-radius: 0.9em;
+  color: white !important;
+}
+
+.exit_voucher_list_btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px; border-radius: 4px; margin-top: 5px;
+}

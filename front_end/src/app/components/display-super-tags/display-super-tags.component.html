@@ -1,0 +1,25 @@
+<div *ngIf="superTags.length > 0" class="example-container">
+  <mat-card
+
+    style="margin-right: 10px ;}"
+    *ngFor="let superTag of superTags"
+    class="example-card"
+    (click)="onSuperTagClick(superTag)"
+  >
+    <mat-card-header
+      style="
+        width: 200px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      "
+    >
+      <mat-card-title>{{ superTag.name }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div *ngIf="superTags.length === 0">
+  <p>No SuperTags available.</p>
+</div>

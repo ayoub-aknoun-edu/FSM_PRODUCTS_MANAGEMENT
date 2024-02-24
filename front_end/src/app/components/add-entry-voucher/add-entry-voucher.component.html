@@ -1,0 +1,120 @@
+<h2 style="text-align: center">Add Entry Voucher</h2>
+
+<mat-card mat-elevation="12">
+  <mat-card-content>
+    <mat-stepper orientation="vertical">
+      <!--step 1-->
+      <mat-step [stepControl]="entryVoucherForm">
+        <ng-template matStepLabel>Step 1</ng-template>
+        <form [formGroup]="entryVoucherForm" style="margin-top: 25px">
+          <ng-template matStepContent>
+            <mat-form-field appearance="fill" style="margin-right: 30px">
+              <mat-label>Ev Number</mat-label>
+              <input
+                matInput
+                placeholder="Voucher Number"
+                formControlName="evNumber"
+              />
+              <mat-error
+                *ngIf="entryVoucherForm.get('evNumber')?.hasError('pattern')"
+              >
+                Only numbers are allowed.
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea
+                  matInput
+                  placeholder="Enter Description"
+                  formControlName="description"
+                ></textarea>
+              </mat-form-field>
+            </div>
+            <button
+              style="font-size: 1.2em"
+              mat-raised-button
+              color="primary"
+              mat-button
+              matStepperNext
+            >
+              Next
+            </button>
+          </ng-template>
+        </form>
+      </mat-step>
+      <!--step 2-->
+      <mat-step>
+        <ng-template matStepLabel>Step 2</ng-template>
+        <form [formGroup]="InvoiceFormGroup" style="margin-top: 25px">
+          <ng-template matStepContent>
+            <mat-form-field style="margin-right: 30px">
+              <mat-label>Total Amount</mat-label>
+              <input
+                matInput
+                placeholder="Received Amount"
+                formControlName="total_amount"
+              />
+              <mat-error
+                *ngIf="
+                  entryVoucherForm
+                    .get('invoice.total_amount')
+                    ?.hasError('positiveNumber')
+                "
+              >
+                Positive numbers Only.
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Choose the due date</mat-label>
+                <input
+                  placeholder="MM/DD/YYYY"
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="date"
+                  [matDatepickerFilter]="dueDateFilter"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                  *ngIf="
+                    entryVoucherForm.get('invoice.date')?.hasError('required')
+                  "
+                >
+                  Due date is required.
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div style="margin-top: 30px">
+              <button
+                style="margin-right: 30px; font-size: 1.2em"
+                mat-button
+                matStepperPrevious
+                mat-raised-button
+                color="primary"
+              >
+                Back
+              </button>
+              <button
+                style="font-size: 1.2em"
+                mat-button
+                mat-raised-button
+                color="warn"
+                mat-button
+                (click)="onSubmit()"
+                [disabled]="!entryVoucherForm.valid"
+              >
+                Submit
+              </button>
+            </div>
+          </ng-template>
+        </form>
+      </mat-step>
+    </mat-stepper>
+  </mat-card-content>
+</mat-card>

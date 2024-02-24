@@ -1,0 +1,185 @@
+<div *ngIf="ks.getUserRoles().includes('ADMIN')" style="position: absolute; right: 10px; top :60px;">
+  <button
+          class="btn btn-outline-info exit_voucher_list_btn"
+          style=" "
+          (click)="exitvoucherList()">EXIT VOUCHER LIST <i class="bi bi-card-list"></i>
+  </button>
+</div>
+<div>
+  <h2>Add Exit Voucher</h2>
+  <mat-stepper linear="false" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Exit Voucher Info</ng-template>
+      <div class="d-flex flex-row w-100">
+        <div>
+          <mat-form-field class="full-with">
+            <mat-label>Super Tag</mat-label>
+            <mat-select
+              [(ngModel)]="selectedSuperTag"
+              (selectionChange)="onSuperTagChange(selectedSuperTag)"
+            >
+              <mat-option
+                *ngFor="let superTag of superTags"
+                [value]="superTag"
+                >{{ superTag.name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-with">
+            <mat-label>Tag</mat-label>
+            <mat-select
+              [(ngModel)]="selectedTag"
+              (selectionChange)="onTagChange(selectedTag)"
+            >
+              <mat-option *ngFor="let tag of tags" [value]="tag">{{
+                tag.name
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="full-with">
+            <mat-label>Exit Voucher Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [min]="currentDate"
+              (dateInput)="exitDate($event)"
+              disabled
+              (dateChange)="exitDate($event)"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div>
+        <button
+          mat-button
+          (click)="stepper.next()"
+          [disabled]="!isDateSelected"
+        >
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Select Products</ng-template>
+      <table mat-table [dataSource]="selectedProducts">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.product.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.product.description }}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-checkbox
+              [(ngModel)]="element.isSelected"
+              (change)="toggleSelection(element)"
+            ></mat-checkbox>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="st2displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: st2displayedColumns"></tr>
+      </table>
+      <div>
+        <button mat-button (click)="stepper.previous()">Previous</button>
+        <button
+          mat-button
+          (click)="stepper.next()"
+          [disabled]="!(dataSource.data.length > 0)"
+        >
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Products Quantity</ng-template>
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.product.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef>Quantity</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="decreaseQuantity(element)">
+              <mat-icon>remove</mat-icon>
+            </button>
+            {{ element.quantity }}
+            <button mat-icon-button (click)="increaseQuantity(element)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="st3displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: st3displayedColumns"></tr>
+      </table>
+      <div>
+        <button mat-button (click)="stepper.previous()">Previous</button>
+        <button mat-button (click)="stepper.next()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div style="width: 100%; display: grid; place-content: center">
+        <ng-template matStepLabel>Summary</ng-template>
+        <p>Summary of the voucher:</p>
+        <table style="text-align: left">
+          <tr>
+            <th></th>
+            <th style="width: 20px">&nbsp;</th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>Super Tag</th>
+            <td style="width: 20px">:</td>
+            <td>{{ selectedSuperTag.name }}</td>
+          </tr>
+          <tr>
+            <th>Tag</th>
+            <td style="width: 20px">:</td>
+            <td>{{ selectedTag.name }}</td>
+          </tr>
+          <tr>
+            <th>Exit Date</th>
+            <td style="width: 20px">:</td>
+            <td>{{ datechoosed | date : "dd-MM-yyyy" }}</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center">Products:</td>
+          </tr>
+          <tr>
+            <th>Product Name</th>
+            <td style="width: 20px">&nbsp;</td>
+            <th>Quantity</th>
+          </tr>
+          <tr *ngFor="let selectedProduct of dataSource.data">
+            <td>{{ selectedProduct.product.name }}</td>
+            <td style="width: 20px">&nbsp;</td>
+            <td>{{ selectedProduct.quantity }}</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <button mat-button (click)="stepper.previous()">Previous</button>
+        <button mat-button (click)="submitExitVoucher()">Submit</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

@@ -1,0 +1,795 @@
+{
+  "superTags": [
+    {
+      "id": 1,
+      "name": "Categ1"
+    },
+    {
+      "id": 2,
+      "name": "Categ2"
+    },
+    {
+      "id": 3,
+      "name": "categ3"
+    },
+    {
+      "id": 4,
+      "name": "categ4"
+    },
+    {
+      "id": 5,
+      "name": "categ5"
+    },
+    {
+      "name": "SupertEST",
+      "id": 6
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "School Supplies",
+      "total_quantity": 251,
+      "min_quantity": 22,
+      "superTag": {
+        "id": 2,
+        "name": "Categ2"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Other Supplies",
+      "total_quantity": 500,
+      "min_quantity": 22,
+      "superTag": {
+        "id": 2,
+        "name": "Categ2"
+      }
+    },
+    {
+      "id": 4,
+      "name": "new_tag",
+      "superTag": {
+        "id": 1,
+        "name": "Categ1"
+      },
+      "total_quantity": 500,
+      "min_quantity": 10
+    },
+    {
+      "id": 5,
+      "name": "HR Supplies",
+      "superTag": {
+        "id": 1,
+        "name": "Categ1"
+      },
+      "total_quantity": 500,
+      "min_quantity": 10
+    },
+    {
+      "id": 6,
+      "name": "Medical Supplies",
+      "superTag": {
+        "id": 3,
+        "name": "categ3"
+      },
+      "total_quantity": 500,
+      "min_quantity": 50
+    },
+    {
+      "id": 7,
+      "name": "Surgical Supplies",
+      "superTag": {
+        "id": 5,
+        "name": "categ5"
+      },
+      "total_quantity": 502,
+      "min_quantity": 44
+    },
+    {
+      "id": 8,
+      "name": "Urgent Supplies",
+      "superTag": {
+        "id": 4,
+        "name": "categ4"
+      },
+      "total_quantity": 501,
+      "min_quantity": 100
+    },
+    {
+      "name": "tESTtag",
+      "total_quantity": 0,
+      "min_quantity": "122",
+      "superTag": {
+        "name": "SupertEST"
+      },
+      "id": 9
+    }
+  ],
+  "technicalSheets": [
+    {
+      "id": 1,
+      "colors": "Red",
+      "weight": 1500,
+      "dimensions": "10x20x5",
+      "warnings": "Handle with care"
+    },
+    {
+      "id": 2,
+      "colors": "Blue",
+      "weight": 2000,
+      "dimensions": "15x25x8",
+      "warnings": "Keep away from water"
+    }
+  ],
+  "products": [
+    {
+      "id": 3,
+      "name": "newTestName",
+      "reference": "ref_xx03x",
+      "ev_number": "AB1338583",
+      "warehouse": "warehouse_3",
+      "supplier": "supplier_300",
+      "received_quantity": "23",
+      "sheet": {
+        "id": 1,
+        "weight": 1500,
+        "dimensions": "23x23x11",
+        "colors": "Red",
+        "warnings": "Handle with care"
+      },
+      "tag": {
+        "name": "HR Supplies",
+        "superTag": {
+          "name": "Categ1"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "reference": "x23x98DF1",
+      "name": "product_4",
+      "warehouse": "south_warehouse",
+      "ev_number": "12344610",
+      "supplier": "chineese_supplier",
+      "received_quantity": 12,
+      "sheet": {
+        "id": 1,
+        "colors": "Red",
+        "weight": 1500,
+        "dimensions": "10x20x5",
+        "warnings": "Handle with care"
+      },
+      "tag": {
+        "name": "Medical Supplies",
+        "superTag": {
+          "name": "categ3"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "reference": "ref_xx05x",
+      "name": "product_5",
+      "warehouse": "warehouse_5",
+      "ev_number": "SFOEPKFJ331",
+      "supplier": "supplier_5",
+      "received_quantity": 23,
+      "tag": {
+        "name": "Urgent Supplies",
+        "superTag": {
+          "name": "categ4"
+        }
+      },
+      "sheet": {
+        "id": 1,
+        "colors": "Red",
+        "weight": 1500,
+        "dimensions": "10x20x5",
+        "warnings": "Handle with care"
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "reference": "ref_xx06x",
+      "name": "product_6",
+      "warehouse": "warehouse_3",
+      "ev_number": "AB13385231",
+      "supplier": "supplier_6",
+      "received_quantity": 30,
+      "tag": {
+        "name": "Surgical Supplies",
+        "superTag": {
+          "name": "categ5"
+        }
+      },
+      "sheet": {
+        "id": 1,
+        "colors": "Red",
+        "weight": 1500,
+        "dimensions": "10x20x5",
+        "warnings": "Handle with care"
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "reference": "ref_xx07x",
+      "name": "product_7",
+      "warehouse": "warehouse_3",
+      "ev_number": "SDGJOL134",
+      "supplier": "supplier_4",
+      "received_quantity": 15,
+      "tag": {
+        "name": "Surgical Supplies",
+        "superTag": {
+          "name": "categ5"
+        }
+      },
+      "sheet": {
+        "id": 1,
+        "colors": "Red",
+        "weight": 1500,
+        "dimensions": "10x20x5",
+        "warnings": "Handle with care"
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ]
+    },
+    {
+      "reference": "ref_xx8_xx",
+      "name": "product_8",
+      "warehouse": "warehouse_4",
+      "ev_number": "23JORU0",
+      "supplier": "supplier_4",
+      "received_quantity": 44,
+      "sheet": {
+        "colors": "white, pink",
+        "weight": "12",
+        "dimensions": "22x22x12",
+        "warnings": "nothing"
+      },
+      "tag": {
+        "name": "Urgent Supplies",
+        "superTag": {
+          "name": "categ4"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "reference": "ref_10",
+      "name": "name_10",
+      "warehouse": "warehouse_10",
+      "ev_number": "1234569",
+      "supplier": "supplier_10",
+      "received_quantity": 112,
+      "sheet": {
+        "colors": "white",
+        "weight": "34",
+        "dimensions": "34x34x11",
+        "warnings": "keep cold"
+      },
+      "tag": {
+        "name": "HR Supplies",
+        "superTag": {
+          "name": "Categ1"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "reference": "ref_001_AZ",
+      "name": "Big_Product",
+      "warehouse": "warehouse_1",
+      "ev_number": "112987",
+      "supplier": "supplier_100",
+      "received_quantity": 33,
+      "sheet": {
+        "colors": "Black, White, Red",
+        "weight": "54",
+        "dimensions": "33x33x12",
+        "warnings": "Nothing"
+      },
+      "tag": {
+        "name": "Surgical Supplies",
+        "superTag": {
+          "name": "categ5"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "reference": "reference_900",
+      "name": "name_900",
+      "warehouse": "warehouse_900",
+      "ev_number": "900900900",
+      "supplier": "supplier_900",
+      "received_quantity": 79,
+      "sheet": {
+        "colors": "Purpole",
+        "weight": "34",
+        "dimensions": "54x43x22",
+        "warnings": "Nothing"
+      },
+      "tag": {
+        "name": "Medical Supplies",
+        "superTag": {
+          "name": "categ3"
+        }
+      },
+      "accessories": [
+        {
+          "name": "accessory_1"
+        },
+        {
+          "name": "accessory_2"
+        }
+      ],
+      "documents": [
+        {
+          "name": "some_document",
+          "url": "https://www.ibiblio.org/ebooks/Dickens/Carol/Dickens_Carol.pdf",
+          "type": "manual book"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "reference": "aaaaaaaaaaaa",
+      "name": "aaaaaaaaaaaa",
+      "warehouse": "aaaaaaaaaaaa",
+      "ev_number": "223",
+      "supplier": "aaaaaaaaaaaa",
+      "received_quantity": 1112,
+      "sheet": {
+        "colors": "aaaaaaaaaaaa",
+        "weight": "aaaaaaaaaaaa",
+        "dimensions": "aaaaaaaaaaaa",
+        "warnings": "aaaaaaaaaaaa"
+      },
+      "tag": {
+        "name": "HR Supplies",
+        "superTag": {
+          "name": "Categ1"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 13
+    },
+    {
+      "reference": "tttttt",
+      "name": "tttttt",
+      "warehouse": "tttttt",
+      "ev_number": "4526",
+      "supplier": "tttttt",
+      "received_quantity": 12,
+      "sheet": {
+        "colors": "tttttt",
+        "weight": "tttttt",
+        "dimensions": "tttttt",
+        "warnings": "tttttt"
+      },
+      "tag": {
+        "name": "Medical Supplies",
+        "superTag": {
+          "name": "categ3"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 14
+    },
+    {
+      "reference": "iuiui",
+      "name": "iuiui",
+      "warehouse": "iuiui",
+      "ev_number": "89673",
+      "supplier": "iuiui",
+      "received_quantity": "112",
+      "sheet": {
+        "colors": "iuiui",
+        "weight": "112",
+        "dimensions": "12x12x12",
+        "warnings": "iuiui"
+      },
+      "tag": {
+        "name": "Urgent Supplies",
+        "superTag": {
+          "name": "categ4"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 15
+    },
+    {
+      "reference": "kkkll",
+      "name": "kkkll",
+      "warehouse": "kkkll",
+      "ev_number": "89673",
+      "supplier": "kkkll",
+      "received_quantity": "223",
+      "sheet": {
+        "colors": "kkkll",
+        "weight": "11",
+        "dimensions": "67x12x22",
+        "warnings": "kkkll"
+      },
+      "tag": {
+        "name": "new_tag",
+        "superTag": {
+          "name": "Categ1"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 16
+    },
+    {
+      "reference": "hhhhhhhh",
+      "name": "hhhhhhhh",
+      "warehouse": "hhhhhhhh",
+      "ev_number": "89673",
+      "supplier": "hhhhhhhh",
+      "received_quantity": "11",
+      "sheet": {
+        "colors": "hhhhhhhh",
+        "weight": "11",
+        "dimensions": "11x11x11",
+        "warnings": "hhhhhhhh"
+      },
+      "tag": {
+        "name": "School Supplies",
+        "superTag": {
+          "name": "Categ2"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 17
+    },
+    {
+      "reference": "AAAA",
+      "name": "AAAA",
+      "warehouse": "AAAA",
+      "ev_number": "89673",
+      "supplier": "AAAA",
+      "received_quantity": "223",
+      "sheet": {
+        "colors": "AAAA",
+        "weight": "23",
+        "dimensions": "13x13x13",
+        "warnings": "AAAA"
+      },
+      "tag": {
+        "name": "Medical Supplies",
+        "superTag": {
+          "name": "categ3"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 18
+    },
+    {
+      "reference": "WWWWWW",
+      "name": "WWWWWW",
+      "warehouse": "WWWWWW",
+      "ev_number": "89673",
+      "supplier": "WWWWWW",
+      "received_quantity": "12",
+      "sheet": {
+        "colors": "WWWWWW",
+        "weight": "11",
+        "dimensions": "11x11x11",
+        "warnings": "WWWWWW"
+      },
+      "tag": {
+        "name": "tESTtag",
+        "superTag": {
+          "name": "SupertEST"
+        }
+      },
+      "accessories": [],
+      "documents": [],
+      "id": 19
+    }
+  ],
+  "EntryVouchers": [
+    {
+      "id": 1,
+      "evNumber": 2,
+      "description": "lorum epsum",
+      "date": "2023-12-30",
+      "invoice": {
+        "id": 2,
+        "total_amount": 300,
+        "due_date": "2024-01-05"
+      }
+    },
+    {
+      "id": 2,
+      "evNumber": 3,
+      "description": "Bla Bla Bla Bla",
+      "date": "2023-12-32",
+      "invoice": {
+        "id": 3,
+        "total_amount": 54,
+        "due_date": "2024-01-07"
+      }
+    },
+    {
+      "id": 2,
+      "evNumber": 3,
+      "description": "Bla Bla Bla Bla",
+      "date": "2023-12-32",
+      "invoice": {
+        "id": 3,
+        "total_amount": 54,
+        "due_date": "2024-01-07"
+      }
+    },
+    {
+      "id": 3,
+      "evNumber": 4,
+      "description": "To Sherlock Holmes she is always the Women",
+      "date": "2024-01-10",
+      "invoice": {
+        "id": 4,
+        "total_amount": 112,
+        "due_date": "2024-01-29"
+      }
+    },
+    {
+      "evNumber": "1123",
+      "description": "Nothing",
+      "date": "2023-12-27T21:01:32.972Z",
+      "invoice": {
+        "total_amount": "112",
+        "due_date": "2023-12-27T23:00:00.000Z"
+      },
+      "id": 5
+    },
+    {
+      "evNumber": "234",
+      "description": "",
+      "date": "2023-12-27T21:02:47.996Z",
+      "invoice": {
+        "total_amount": "444",
+        "due_date": "2023-12-29T23:00:00.000Z"
+      },
+      "id": 6
+    },
+    {
+      "evNumber": "352",
+      "description": "walo",
+      "date": "2023-12-27",
+      "invoice": {
+        "total_amount": "112",
+        "due_date": "2023-12-29"
+      },
+      "id": 7
+    },
+    {
+      "evNumber": "7790",
+      "description": "Test Voucher",
+      "date": "2023-12-27",
+      "invoice": {
+        "total_amount": "11300",
+        "due_date": "2023-12-31"
+      },
+      "id": 8
+    },
+    {
+      "evNumber": "00975",
+      "description": "Humbag",
+      "date": "2023-12-27",
+      "invoice": {
+        "total_amount": "6674",
+        "due_date": "2024-01-01"
+      },
+      "id": 9
+    },
+    {
+      "evNumber": "4526",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae arcu sit amet quam molestie convallis. Mauris eu enim sed mi fringilla efficitur.",
+      "date": "2023-12-27",
+      "invoice": {
+        "total_amount": "333",
+        "due_date": "2024-01-02"
+      },
+      "id": 10
+    },
+    {
+      "evNumber": "8689976",
+      "description": "",
+      "date": "2023-12-28",
+      "invoice": {
+        "total_amount": "666",
+        "due_date": "2023-12-31"
+      },
+      "id": 11
+    },
+    {
+      "evNumber": "09",
+      "description": "bla bla bla",
+      "date": "2023-12-30",
+      "invoice": {
+        "total_amount": "112",
+        "due_date": "2023-12-31"
+      },
+      "id": 12
+    },
+    {
+      "evNumber": "123",
+      "description": "",
+      "date": "2023-12-30",
+      "invoice": {
+        "total_amount": "333",
+        "due_date": "2023-12-31"
+      },
+      "id": 13
+    },
+    {
+      "evNumber": "89673",
+      "description": "Description",
+      "date": "2023-12-30",
+      "invoice": {
+        "total_amount": "335",
+        "due_date": "2024-01-15"
+      },
+      "id": 14
+    },
+    {
+      "evNumber": "900",
+      "description": "",
+      "date": "2024-01-03",
+      "invoice": {
+        "total_amount": "8000",
+        "due_date": "2024-01-18"
+      },
+      "id": 15
+    }
+  ],
+  "RF": [
+    {
+      "ev_number": 1123,
+      "date": "2023-12-27",
+      "user_name": "john doe",
+      "is_confirmed": true,
+      "products": [
+        {
+          "name": "pr1",
+          "reference": "ref1",
+          "quantity": 2,
+          "tag": "tag_name1"
+        },
+        {
+          "name": "pr2",
+          "reference": "ref2",
+          "quantity": 3,
+          "tag": "tag_name2"
+        }
+      ]
+    }
+  ]
+}

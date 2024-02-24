@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.description-cell {
+  max-width: 80px; /* Adjust the max-width as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.description-text {
+  cursor: pointer;
+}

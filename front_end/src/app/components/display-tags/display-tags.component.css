@@ -1,0 +1,11 @@
+.example-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.example-card {
+  flex: 0 0 calc(33.33% - 12px); /* 33.33% width with a small margin between cards */
+  margin-top: 12px;
+  box-sizing: border-box;
+}

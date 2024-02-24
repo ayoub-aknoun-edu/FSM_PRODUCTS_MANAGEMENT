@@ -1,0 +1,8 @@
+<h1 style="justify-content: center" mat-dialog-title>Confirm Action</h1>
+<div mat-dialog-content>Are you sure you want to do this action?</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="warn">
+    Confirm
+  </button>
+</div>

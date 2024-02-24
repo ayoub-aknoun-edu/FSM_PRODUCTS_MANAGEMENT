@@ -1,0 +1,78 @@
+<div class="mat-elevation-z8">
+
+  <table mat-table
+         [dataSource]="dataSource" multiTemplateDataRows
+         style="width: 1000px"
+         class="mat-elevation-z8">
+    <ng-container *ngFor="let column of columnsToDisplay" matColumnDef="{{ column }}">
+      <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> status </th>
+      <td mat-cell *matCellDef="let element"> {{!element.checked?"waiting":element.approved?"approved":"declined"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> actions </th>
+
+      <td mat-cell *matCellDef="let element">
+        <div  style="width: 100px!important;">
+          <button *ngIf="!element.checked" class="btn btn-success me-2" color="primary" (click)="approve(element.exv_number)"><i class="bi bi-check fs-6"></i></button>
+          <button *ngIf="!element.checked" class="btn btn-danger" color="warn" (click)="reject(element.exv_number)"><i class="bi bi-x fs-6"></i></button>
+        </div>
+         </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+        <div class=""
+             [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="" style="width: 100%;position: relative">
+            <table style="width: 100%;">
+              <thead>
+              <tr>
+                <th style="width: 25%">Product</th>
+                <th style="width: 50%">Reference</th>
+                <th style="width: 25%">Quantity</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let el of element.exitedProduct">
+                <td style="width: 25%">{{el.name}}</td>
+                <td style="width: 50%">{{el.reference}}</td>
+                <td style="width: 25%">{{el.quantity}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element"
+        [ngClass]="{'approved-color': element.approved, 'rejected-color': !element.approved, 'waiting-color': !element.checked}"
+    >
+    </tr>
+
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"
+        [ngClass]="{'expanded-border':row.expand==='expanded','approved-color': row.approved, 'rejected-color': !row.approved, 'waiting-color': !row.checked}"
+    ></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
