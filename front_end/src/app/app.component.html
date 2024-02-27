@@ -1,15 +1,17 @@
-
 <div class="toolbar" role="banner">
-  <span style="margin-left: 10px">FSM Meknes</span>
+  <span routerLink="/" style="margin-left: 10px">
+
+    <img src="assets/logo.jpg" alt="logo" style="width: 60px; height: 60px; margin-top: 5px; margin-bottom: 5px;">
+  </span>
 
   <button mat-menu-item routerLink="/"
-          style="font-size: medium;font-weight: bold;width: auto;color:white;border-radius: .7em!important;"
+          class="navBtn"
   >
     HOME
   </button>
 
   <button mat-menu-item
-          style="font-size: medium;font-weight: bold; width: auto;color:white;border-radius: .7em!important;"
+          class="navBtn"
           routerLink="/products"
   >
     <div>PRODUCT</div>
@@ -17,27 +19,45 @@
 
   <div *ngIf="ks.getUserRoles().includes('ADMIN')">
     <button mat-menu-item
-       routerLink="/entryForm"
-       style="font-size: medium;font-weight: bold;width: auto;color:white;border-radius: .7em!important;">
+            routerLink="/entryForm"
+            class="navBtn">
+
       ENTRY VOUCHER
     </button>
-    </div>
+  </div>
 
-    <mat-menu #exvmenu="matMenu" style="border-radius: .7em">
-      <button mat-menu-item (click)="goTo('/xvs')">ADD EXIT VOUCHER</button>
+  <mat-menu #exvmenu="matMenu" style="border-radius: .7em">
+    <button mat-menu-item
+            (click)="goTo('/xvs')">
+      ADD EXIT VOUCHER
+    </button>
 
-      <button *ngIf="ks.getUserRoles().includes('ADMIN')" mat-menu-item (click)="goTo('/xvlist')">EXIT VOUCHER LIST</button>
-    </mat-menu>
-    <div *ngIf="ks.isLoggedIn()">
-      <button mat-menu-item [matMenuTriggerFor]="exvmenu" aria-label="Menu" style="font-size: medium; font-weight: bold;width: auto;color:white;border-radius: .7em!important;">
-        <div>EXIT VOUCHER</div>
-      </button>
-    </div>
-
+    <button mat-menu-item
+            *ngIf="ks.getUserRoles().includes('ADMIN')"
+            (click)="goTo('/xvlist')">
+      EXIT VOUCHER LIST
+    </button>
+  </mat-menu>
+  <div *ngIf="ks.isLoggedIn()">
+    <button mat-menu-item
+            [matMenuTriggerFor]="exvmenu" aria-label="Menu"
+            class="navBtn">
+      <div>EXIT VOUCHER</div>
+    </button>
+  </div>
+  <div *ngIf="ks.getUserRoles().includes('ADMIN')">
+    <button mat-menu-item
+            routerLink="/inventory"
+            class="navBtn">
+      INVENTORY
+    </button>
+  </div>
   <div class="spacer"></div>
   <div style="margin-right: 30px" *ngIf="ks.getUserRoles().includes('ADMIN')">
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="createFeuilleComptage()">
+      <button
+        mat-menu-item
+        (click)="createFeuilleComptage()">
         Generate counting sheet
       </button>
       <input
@@ -48,20 +68,35 @@
       />
     </mat-menu>
 
-    <button mat-menu-item  [matMenuTriggerFor]="menu" aria-label="Menu" style="width: auto; font-size: medium;font-weight: bold; color: white;">
+    <button mat-menu-item
+            [matMenuTriggerFor]="menu" aria-label="Menu"
+            class="navBtn">
       <div>COUNTING SHEET</div>
     </button>
   </div>
   <div *ngIf="!ks.isLoggedIn();else signed">
-    <button mat-button style="background-color: green;border-radius: 6px; color: #c2c3c4; font-weight: bold; box-shadow: 0px 8px 15px rgba(0, 0.1, 0, 0.1);" (click)="signup()">SignUp</button>
-    <button mat-button style="border-radius: 6px; color: black; font-weight: bold; box-shadow: 0px 8px 15px rgba(0, 0.1, 0, 0.1);" (click)="login()">Login</button>
+    <button mat-button
+            class="logBtn"
+            (click)="signup()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+      SignUp
+    </button>
+    <button mat-button
+            class="logBtn"
+            (click)="login()">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>
+      Login
+    </button>
   </div>
   <ng-template #signed>
     <mat-menu #lg="matMenu">
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
-    <button mat-button [matMenuTriggerFor]="lg" aria-label="Menu" style="margin-right: 30px;font-size: medium;color: white">
-      <div  *ngIf="profile">{{profile.username|slice:0:6|uppercase}}</div>
+    <button mat-button [matMenuTriggerFor]="lg" aria-label="Menu"
+            class="logBtn"
+            style="margin-right: 30px;font-style: unset; ">
+      <mat-icon  aria-hidden="false"  fontIcon="person"></mat-icon>
+      <div *ngIf="profile">{{ profile.username|slice:0:6|uppercase }}</div>
     </button>
   </ng-template>
 

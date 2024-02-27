@@ -30,7 +30,7 @@ public class StockActuelController {
         return stockActuelService.getStockActuelByReference(reference);
     }
 
-    @GetMapping("/{date}")
+    @GetMapping("/byDate/{date}")
     public List<StockActuel> getStockActuelByDate(@PathVariable String date) {
         return stockActuelService.getStockActuelByDate(date);
     }

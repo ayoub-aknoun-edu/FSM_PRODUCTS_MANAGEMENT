@@ -1,0 +1,24 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+
+.start_icon {
+  border-radius: 9px !important;
+  height: 3em;
+  width: 3em;
+  background-color: #7ea156;
+}
+
+.stop_icon {
+  border-radius: 9px !important;
+  height: 3em;
+  width: 3em;
+  background-color: #E01515;
+}

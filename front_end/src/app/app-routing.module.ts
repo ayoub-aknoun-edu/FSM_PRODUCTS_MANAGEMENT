@@ -11,6 +11,7 @@ import { DisplayTagsComponent } from './components/display-tags/display-tags.com
 import { DisplayProductsComponent } from './components/display-products/display-products.component';
 import {AuthGuard} from "./gards/auth.guard";
 import {ExitVoucherListComponent} from "./components/exit-voucher-list/exit-voucher-list.component";
+import {InventaireComponent} from "./components/inventaire/inventaire.component";
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'evs', component: DisplayEntryVoouchersComponent, canActivate:[AuthGuard],data:{roles:['ADMIN']}},
   { path: 'entryForm', component: AddEntryVoucherComponent, canActivate:[AuthGuard],data:{roles:['ADMIN']}},
   { path: 'xvs', component: ExitVoucherComponent },
+  { path: 'inventory', component: InventaireComponent, canActivate:[AuthGuard],data:{roles:['ADMIN']} },
   { path: 'display-super-tags', component: DisplaySuperTagsComponent },
   { path: 'products/:supertagName/:tagName', component: DisplayProductsComponent },
   { path: 'display-tags/:superTagName', component: DisplayTagsComponent },
