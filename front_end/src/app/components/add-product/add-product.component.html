@@ -3,8 +3,125 @@
     <h1 style="text-align: center">Add product</h1>
   </mat-card-title>
   <mat-card-content>
-    <mat-stepper #stepper>
+    <mat-stepper linear="false"  #stepper>
       <!-- Step 1: Product Information -->
+      <mat-step>
+        <ng-template matStepLabel>Select Super Tag</ng-template>
+        <form [formGroup]="ProductTagFormGroup">
+          <mat-card
+            mat-elevation="12"
+            style="margin-top: 30px; margin-bottom: 30px"
+          >
+            <mat-card-content>
+              <mat-card-header>
+                <h1>Select Super Tag</h1>
+              </mat-card-header>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Super Tag Name</mat-label>
+                <mat-select
+                  formControlName="name"
+                  placeholder="Select super tag"
+                >
+                  <mat-option value="createNew">
+                    <button
+                      (click)="addNewSupperTag()"
+                      mat-flat-button
+                      color="primary"
+                    >
+                      Add New Super Tag
+                    </button>
+                  </mat-option>
+                  <mat-option
+                    *ngFor="let superTag of superTags"
+                    [value]="superTag.name"
+                  >{{ superTag.name }}</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Buttons -->
+          <div style="display: flex; justify-content: flex-end">
+            <button
+              style="margin-right: 30px; font-size: 1.2em"
+              mat-button
+              matStepperPrevious
+              mat-raised-button
+              color="primary"
+            >
+              Back
+            </button>
+            <button
+              style="font-size: 1.2em"
+              mat-button
+              matStepperNext
+              (click)="updateTagOptions()"
+              mat-raised-button
+              color="accent"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Select Tag</ng-template>
+        <form [formGroup]="ProductTagFormGroup">
+          <mat-card
+            mat-elevation="12"
+            style="margin-top: 30px; margin-bottom: 30px"
+          >
+            <mat-card-content>
+              <mat-card-header>
+                <h1>Select Tag</h1>
+              </mat-card-header>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Tag Name</mat-label>
+                <mat-select
+                  required=""
+                  (selectionChange)="onTagSelectionChange($event.value)"
+                >
+                  <mat-option value="createNew">
+                    <button
+                      (click)="addNewTag()"
+                      mat-flat-button
+                      color="primary"
+                    >
+                      Add New  Tag
+                    </button>
+                  </mat-option>
+                  <mat-option *ngFor="let tag of tagOptions" [value]="tag">
+                    {{ tag }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+          <!-- Buttons -->
+          <div style="display: flex; justify-content: flex-end">
+            <button
+              mat-button
+              matStepperPrevious
+              mat-raised-button
+              color="primary"
+              style="margin-right: 30px; font-size: 1.2em"
+            >
+              Back
+            </button>
+            <button
+              style="font-size: 1.2em"
+              mat-button
+              matStepperNext
+              mat-raised-button
+              color="accent"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
       <mat-step [stepControl]="productForm">
         <form [formGroup]="productForm">
           <ng-template matStepLabel>Product Information</ng-template>
@@ -215,124 +332,8 @@
       </mat-step>
 
       <!-- Step 2: Super Tag Information -->
-      <mat-step>
-        <ng-template matStepLabel>Select Super Tag</ng-template>
-        <form [formGroup]="ProductTagFormGroup">
-          <mat-card
-            mat-elevation="12"
-            style="margin-top: 30px; margin-bottom: 30px"
-          >
-            <mat-card-content>
-              <mat-card-header>
-                <h1>Select Super Tag</h1>
-              </mat-card-header>
-              <mat-form-field appearance="fill" class="example-full-width">
-                <mat-label>Super Tag Name</mat-label>
-                <mat-select
-                  formControlName="name"
-                  placeholder="Select super tag"
-                >
-                  <mat-option value="createNew">
-                    <button
-                      (click)="addNewSupperTag()"
-                      mat-flat-button
-                      color="primary"
-                    >
-                      Add New Super Tag
-                    </button>
-                  </mat-option>
-                  <mat-option
-                    *ngFor="let superTag of superTags"
-                    [value]="superTag.name"
-                    >{{ superTag.name }}</mat-option
-                  >
-                </mat-select>
-              </mat-form-field>
-            </mat-card-content>
-          </mat-card>
-
-          <!-- Buttons -->
-          <div style="display: flex; justify-content: flex-end">
-            <button
-              style="margin-right: 30px; font-size: 1.2em"
-              mat-button
-              matStepperPrevious
-              mat-raised-button
-              color="primary"
-            >
-              Back
-            </button>
-            <button
-              style="font-size: 1.2em"
-              mat-button
-              matStepperNext
-              (click)="updateTagOptions()"
-              mat-raised-button
-              color="accent"
-            >
-              Next
-            </button>
-          </div>
-        </form>
-      </mat-step>
 
       <!-- Step 3: Tag Information -->
-      <mat-step>
-        <ng-template matStepLabel>Select Tag</ng-template>
-        <form [formGroup]="ProductTagFormGroup">
-          <mat-card
-            mat-elevation="12"
-            style="margin-top: 30px; margin-bottom: 30px"
-          >
-            <mat-card-content>
-              <mat-card-header>
-                <h1>Select Tag</h1>
-              </mat-card-header>
-              <mat-form-field appearance="fill" class="example-full-width">
-                <mat-label>Tag Name</mat-label>
-                <mat-select
-                  required=""
-                  (selectionChange)="onTagSelectionChange($event.value)"
-                >
-                <mat-option value="createNew">
-                  <button
-                    (click)="addNewTag()"
-                    mat-flat-button
-                    color="primary"
-                  >
-                    Add New  Tag
-                  </button>
-                </mat-option>
-                  <mat-option *ngFor="let tag of tagOptions" [value]="tag">
-                    {{ tag }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-card-content>
-          </mat-card>
-          <!-- Buttons -->
-          <div style="display: flex; justify-content: flex-end">
-            <button
-              mat-button
-              matStepperPrevious
-              mat-raised-button
-              color="primary"
-              style="margin-right: 30px; font-size: 1.2em"
-            >
-              Back
-            </button>
-            <button
-              style="font-size: 1.2em"
-              mat-button
-              matStepperNext
-              mat-raised-button
-              color="accent"
-            >
-              Next
-            </button>
-          </div>
-        </form>
-      </mat-step>
 
       <!-- Step 4: Sheet Information -->
       <mat-step>

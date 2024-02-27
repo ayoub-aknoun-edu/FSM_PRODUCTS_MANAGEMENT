@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { feuilleComptage } from '../models/feuilleComptage';
 import {StockActuel} from "../models/ActuelStock";
+import {environment} from "../../environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class InventoryService {
+  API_URL = environment.apiUrl;
 
-  apiUrl = 'http://localhost:8888/INVENTORY-SERVICE';
+  apiUrl = `${this.API_URL}/INVENTORY-SERVICE`;
 
   constructor(private http: HttpClient) { }
 

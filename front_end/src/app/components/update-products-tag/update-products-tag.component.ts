@@ -31,7 +31,6 @@ export class UpdateProductsTagComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.single_product = data.product;
-    console.log(this.single_product)
   }
 
   ngOnInit(): void {
@@ -50,13 +49,6 @@ export class UpdateProductsTagComponent implements OnInit {
     });
   }
 
-  findSuperTagByName(name: string) {
-    this.tagService.getSuperTagByName(name).subscribe(
-      (res) => {
-        this.selectedSuperTag = res
-      }
-    )
-  }
 
   tagOptions: Tag[] = [];
 

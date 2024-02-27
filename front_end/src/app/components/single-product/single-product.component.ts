@@ -66,10 +66,6 @@ export class SingleProductComponent implements OnInit {
       accessories: this.fb.array([]),
       documents: this.fb.array([])
     })
-
-    console.log('initialized Product Form:', this.productForm.value.accessories)
-    //console.log(this.single_product == this.productForm.value)
-
   }
 
 
@@ -83,13 +79,6 @@ export class SingleProductComponent implements OnInit {
     }
     return null;
   }
-
-  getTagByName(tagName: string): Observable<any> {
-    return this.tagService.getTagByName(tagName)
-  }
-
-
-
 
 
 

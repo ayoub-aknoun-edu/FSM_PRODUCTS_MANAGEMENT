@@ -63,7 +63,6 @@ export class DisplayProductsComponent implements OnInit, AfterViewInit {
   DisplayProductDetails(reference: string) {
     this.productService.getProductByReference(reference).subscribe(
       (product: any) => {
-        console.log(product)
         const popup = this.dialog.open(SingleProductComponent, {
           enterAnimationDuration: '500ms',
           exitAnimationDuration: '500ms',
@@ -72,7 +71,6 @@ export class DisplayProductsComponent implements OnInit, AfterViewInit {
         });
 
         popup.afterClosed().subscribe(res => {
-          console.log('dialog closed.');
         });
       },
       error => {
@@ -102,7 +100,6 @@ export class DisplayProductsComponent implements OnInit, AfterViewInit {
         });
 
         popup.afterClosed().subscribe(res => {
-          console.log('dialog closed.');
         });
       },
       error => {

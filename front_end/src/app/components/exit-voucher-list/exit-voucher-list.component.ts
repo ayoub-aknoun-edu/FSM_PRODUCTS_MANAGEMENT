@@ -90,68 +90,6 @@ export class ExitVoucherListComponent {
       }
     });
   }
-
-  //
-  //
-  // displayedColumns: string[] = ['Number', 'Name', 'Date', 'Approved', 'Actions'];
-  // columnToDisplayWithExpandable: string[] = [...this.displayedColumns,'expand'];
-  // ELEMENT_DATA: any[] = [];
-  // dataSource!:MatTableDataSource<ExitVoucher> ;
-  // expandedElement!: ExitVoucher | null;
-  //
-  //
-  //
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
-  //
-  // constructor(
-  //   private exitVoucherService: ExitVoucherService,
-  //   public ks:KeycloakService
-  // ) {
-  //   this.loadExitVouchers();
-  // }
-  //
-  // ngOnInit(): void {
-  //
-  // }
-  // ngAfterViewInit() {
-  // }
-  //
-  // loadExitVouchers(){
-  //   this.exitVoucherService.getExitVouchers().subscribe({
-  //     next: response => {
-  //       this.ELEMENT_DATA = response;
-  //       this.dataSource = new MatTableDataSource<ExitVoucher>(this.ELEMENT_DATA);
-  //       this.dataSource.paginator = this.paginator;
-  //       this.dataSource.sort = this.sort;
-  //     },
-  //     error: (error: any) => {
-  //       console.log(error);
-  //     }
-  //   });
-  //
-  // }
-  // approve(exv_number: number) {
-  //   this.exitVoucherService.approveExitVoucher(exv_number).subscribe({
-  //     next: response => {
-  //       this.loadExitVouchers();
-  //     },
-  //     error: (error: any) => {
-  //       console.log(error);
-  //     }
-  //   })
-  // }
-  //
-  // reject(exv_number: number) {
-  //   this.exitVoucherService.rejectExitVoucher(exv_number).subscribe({
-  //     next: response => {
-  //       this.loadExitVouchers();
-  //     },
-  //     error: (error: any) => {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
 }
 
 

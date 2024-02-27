@@ -50,8 +50,7 @@ export class DisplayTagsComponent implements OnInit {
   displayHistory(tag: Tag): void {
     this.historyService.getHistoryByTag(tag.name).subscribe(
       (historyList) => {
-        console.log('History List:', historyList);
-        // Do something with the history list, e.g., display it in a dialog
+
       },
       (error) => {
         console.error('Error fetching history:', error);
@@ -66,7 +65,6 @@ export class DisplayTagsComponent implements OnInit {
   }
 
   displayTagHistory(tagName: String) {
-    console.log(tagName)
     this.historyService.getHistoryByTag(tagName).subscribe(
       (history) => {
         const popup = this.dialog.open(DisplayTagsHistoryComponent, {
@@ -78,7 +76,6 @@ export class DisplayTagsComponent implements OnInit {
         });
 
         popup.afterClosed().subscribe(res => {
-          console.log('dialog closed.');
         });
       },
       error => {

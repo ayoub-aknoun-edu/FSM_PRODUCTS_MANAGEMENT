@@ -61,7 +61,6 @@ export class AddEntryVoucherComponent implements OnInit {
     this.entryVoucherService.getEntryVouchers().subscribe(
       res => {
         this.entryVouchers = res
-        console.log("all entryvouchers:", this.entryVouchers)
       }
     )
   }
@@ -92,7 +91,6 @@ export class AddEntryVoucherComponent implements OnInit {
         const newForm: EntryVoucher = this.entryVoucherForm.value;
         this.entryVoucherService.addEntryVoucher(newForm).subscribe(
           (result) => {
-            console.log('Entry Voucher added successfully', result);
             this.snackBar.open('Entry Voucher added successfully', 'Close', {
               duration: 3000,
             });
@@ -101,7 +99,6 @@ export class AddEntryVoucherComponent implements OnInit {
             this.router.navigate(['/add-product', this.evNumber]);
           },
           (error) => {
-            console.error('Error adding entry voucher', error);
             this.snackBar.open('Error adding entry voucher', 'Close', {
               duration: 3000,
             });

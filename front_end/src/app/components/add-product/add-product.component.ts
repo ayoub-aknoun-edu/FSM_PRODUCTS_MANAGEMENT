@@ -51,7 +51,6 @@ export class AddProductComponent implements OnInit {
     this.loadSuperTags();
     this.loadTags();
     this.evNumber = this.route.snapshot.paramMap.get('evNumber');
-    console.log('evNumber:', this.evNumber);
     this.productForm = this.fb.group({
       reference: ['', Validators.required],
       name: ['', Validators.required],
@@ -112,9 +111,7 @@ export class AddProductComponent implements OnInit {
     const foundTag = this.findTagBySelectedTag(selectedTag, this.tags);
 
     if (foundTag) {
-      console.log('Selected Tag Object:', foundTag);
       this.selectedtag = foundTag
-      console.log('Selected Tag/onTagSelectionChange:', this.selectedtag)
       // Update the tag form group in the productForm
       this.productForm.patchValue({
         tag: {
@@ -136,7 +133,6 @@ export class AddProductComponent implements OnInit {
     }
 
     const foundTag = tags.find(tag => tag.name === selectedTag);
-    console.log('selected tag', selectedTag);
     return foundTag || null;
   }
 
@@ -186,13 +182,11 @@ export class AddProductComponent implements OnInit {
   loadSuperTags() {
     this.tagService.getSuperTags().subscribe(superTags => {
       this.superTags = superTags;
-      console.log("all super tags:", this.superTags)
     });
   }
   loadTags() {
     this.tagService.getTags().subscribe(tags => {
       this.tags = tags;
-      console.log("all tags:", this.tags);
     });
   }
 
@@ -208,7 +202,6 @@ export class AddProductComponent implements OnInit {
 
   addNewTag() {
     const superTag = this.ProductTagFormGroup.get('superTag')?.value;
-    //console.log(superTag)
     const popup = this.dialog.open(AddTagComponent, {
       enterAnimationDuration: '500ms',
       exitAnimationDuration: '500ms',
@@ -241,7 +234,6 @@ export class AddProductComponent implements OnInit {
 
   submitForm() {
     if (this.productForm.valid) {
-      console.log(this.productForm.value)
       const newProduct: Product = this.productForm.value;
       this.productService.addProduct(newProduct).subscribe(
         (addedProduct) => {

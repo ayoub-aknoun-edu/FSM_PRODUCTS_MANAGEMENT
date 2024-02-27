@@ -48,7 +48,6 @@ export class AddReleaseFormComponent implements OnInit {
   }
   onTagSelected(): void {
     this.filteredProducts = this.filterProductsByTag(this.selectedTagName);
-    console.log('filtered by ', this.selectedTagName, this.filteredProducts);
     this.filteredProducts.forEach(product => {
       const productForm = this.fb.group({
         name: [product.name, Validators.required],

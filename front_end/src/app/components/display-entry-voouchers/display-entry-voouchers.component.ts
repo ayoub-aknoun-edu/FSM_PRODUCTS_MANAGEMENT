@@ -49,9 +49,6 @@ export class DisplayEntryVoouchersComponent {
   }
 
   enterProduct(evNumber: string): void {
-    // Navigate to the component responsible for adding a product
-    // Pass the evNumber as a parameter to the route
-    console.log("ev number received:", evNumber)
     this.router.navigate(['/add-product', evNumber]);
   }
 }

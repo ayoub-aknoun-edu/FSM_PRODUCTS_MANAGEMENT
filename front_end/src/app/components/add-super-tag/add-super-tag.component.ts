@@ -36,7 +36,6 @@ export class AddSuperTagComponent {
       data: { superTag }
     });
     popup.afterClosed().subscribe(res => {
-      console.log('dialog closed.');
     });
   }
   refreshPage() {

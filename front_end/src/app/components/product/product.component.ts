@@ -56,16 +56,6 @@ export class ProductComponent {
   }
 
 
-  /*
-    getTagById(tagId: number): Observable<any> {
-    return this.tagService.getTagById(tagId);
-  }
-  */
-
-  getTagByName(tagName: string): Observable<any> {
-    return this.tagService.getTagByName(tagName)
-  }
-
 
 
   DisplayProductDetails(reference: string) {
@@ -90,7 +80,6 @@ export class ProductComponent {
   }
 
   updateProductTag(reference: string) {
-    console.log(reference)
     this.productService.getProductByReference(reference).subscribe(
       (product: any) => {
         const popup = this.dialog.open(UpdateProductsTagComponent, {
@@ -100,7 +89,6 @@ export class ProductComponent {
           data: { product }
         });
         popup.afterClosed().subscribe(res => {
-          console.log('dialog closed.');
         });
       },
       error => {

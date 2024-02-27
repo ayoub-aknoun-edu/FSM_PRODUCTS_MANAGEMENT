@@ -54,7 +54,6 @@ export class AppComponent implements OnInit {
 
   createFeuilleComptage() {
     this.inventoryService.createFeuilleComptage().subscribe(feuille => {
-      console.log(feuille);
       this.exportToExcel_new(feuille);
     })
   }
@@ -120,7 +119,6 @@ export class AppComponent implements OnInit {
 
   processFeuilleComptage(feuille: feuilleComptage): void {
     this.inventoryService.processFeuilleComptage(feuille).subscribe(updatedFeuille => {
-      console.log('Processed Feuille:', updatedFeuille);
 
     });
   }
@@ -131,9 +129,8 @@ export class AppComponent implements OnInit {
       const file: File = fileList[0];
 
       this.excelService.importFromExcel(file).subscribe((jsonData) => {
-        // console.log('Imported JSON Data:', jsonData);
         this.inventoryService.processFeuilleComptage(jsonData).subscribe((updatedFeuille) => {
-          // console.log('Processed Feuille:', updatedFeuille);
+
           this.excelService.exportToExcel(updatedFeuille);
         });
       });

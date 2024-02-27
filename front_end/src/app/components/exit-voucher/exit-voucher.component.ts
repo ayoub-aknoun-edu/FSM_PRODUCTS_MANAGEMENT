@@ -145,17 +145,6 @@ export class ExitVoucherComponent implements OnInit {
       });
     })
 
-
-
-    // this.exitVoucherService.addExitVoucher(this.exitVoucher).subscribe({
-    //   next: response => {
-    //     console.log(response);
-    //     this.router.navigate(['xvs']);
-    //   },
-    //   error: (error: any) => {
-    //     console.log(error);
-    //   }
-    // });
     }
 
 
