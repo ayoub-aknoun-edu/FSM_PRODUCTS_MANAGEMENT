@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(ar->ar.anyRequest().authenticated())
+                //.authorizeHttpRequests(ar->ar.anyRequest().permitAll())
                 .oauth2ResourceServer(ors->ors.jwt(jwt->jwt.jwtAuthenticationConverter(jwtAuthConverter)))
                 .build();
     }

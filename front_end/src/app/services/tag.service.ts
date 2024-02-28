@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SuperTag } from '../models/SuperTag';
 import { Tag } from '../models/Tag';
-import {environment} from "../../environment";
+import {environment} from "../../enviroments/environment";
 
 @Injectable({
   providedIn: 'root'

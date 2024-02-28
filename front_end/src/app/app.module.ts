@@ -32,12 +32,13 @@ import { DisplayProductsHistoryComponent } from './components/display-products-h
 import { InventaireComponent } from './components/inventaire/inventaire.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { ExitVoucherListComponent } from './components/exit-voucher-list/exit-voucher-list.component';
+import {environment} from "../enviroments/environment";
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
-        url: 'http://localhost:8890',
+        url: 'http://localhost:8080',
         realm: 'gestion_bien',
         clientId: 'gestion_bien_client'
       },
