@@ -22,7 +22,7 @@ export class ProductComponent {
 
   dataSource: any;
   productList: any;
-  displayedColumns: string[] = ['id', 'reference', 'name', 'tag',
+  displayedColumns: string[] = [ 'reference', 'name', 'tag',
     'supplier', 'warehouse', 'received_quantity', 'warning', 'actions',
   ];
   @ViewChild(MatPaginator) paginator !: MatPaginator;

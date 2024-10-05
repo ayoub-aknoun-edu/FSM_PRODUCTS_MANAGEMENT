@@ -25,7 +25,7 @@ export class ProductService {
 
   // Get a product by Reference
   getProductByReference(reference: string): Observable<Product> {
-    let url = `$${this.API_URL}/PRODUCT-SERVICE/product/${reference}`;
+    let url = `${this.API_URL}/PRODUCT-SERVICE/product/${reference}`;
     return this.http.get<Product>(url);
   }
 

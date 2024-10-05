@@ -18,7 +18,7 @@ import {KeycloakService} from "keycloak-angular";
 })
 export class DisplayProductsComponent implements OnInit, AfterViewInit {
   products: Product[] = [];
-  displayedColumns: string[] = ['id', 'reference', 'name', 'supplier', 'quantity', 'actions'];
+  displayedColumns: string[] = [ 'reference', 'name', 'supplier', 'quantity', 'actions'];
   dataSource: MatTableDataSource<Product> = new MatTableDataSource<Product>(this.products);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

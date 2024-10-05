@@ -1,29 +1,72 @@
-# FSM PRODUCTS MANGEMENT
+# FSM Products Management
+
+Welcome to the FSM Products Management repository! This project is designed to manage university products, providing various features for different types of users.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Project](#running-the-project)
+- [Keycloak Configuration](#keycloak-configuration)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
 
-This project is for managing the university products it provides the following features:
+This project is for managing university products and provides the following features:
 
-- for unauthentocated users:
-  - views products
-  - search for products
-  - create an account
-- for normal users (students, teachers):
-  - all the above features
-  - create a new order
-- for admin users:
-  - all the above features
-  - manage products (add, update, delete)
-  - manage orders (approve, reject, deliver or add new order)
-  - manage the inventory (couting the products and the orders)
+- For unauthenticated users:
+  - View products
+  - Search for products
+  - Create an account
+- For normal users (students, teachers):
+  - All the above features
+  - Create a new order
+- For admin users:
+  - All the above features
+  - Manage products (add, update, delete)
+  - Manage orders (approve, reject, deliver, or add new order)
+  - Manage the inventory (counting the products and the orders)
 
-The project composed of 3 main parts:
+The project is composed of three main parts:
 
-- Security interface provided by Keycloak server in docker container
+- Security interface provided by Keycloak server in a Docker container
 - Frontend application using Angular
 - Backend application using Spring Boot
 
-## Requirements
+## Features
+
+- User authentication and authorization
+- Product management
+- Order management
+- Inventory management
+
+## Technologies Used
+
+### Front-End
+
+- Angular
+- TypeScript
+- HTML/CSS
+- Angular Material
+
+### Back-End
+
+- Spring Boot
+- Java
+- MySQL
+
+### Security
+
+- Keycloak
+
+## Getting Started
+
+### Prerequisites
 
 - Docker
 - Docker-compose
@@ -33,22 +76,78 @@ The project composed of 3 main parts:
 - Java 17 (for building the backend)
 - Keycloak server (for the security)
 
-## Keycloak configuration
+### Installation
 
-the first thing to do after cloning the project is to configure the keycloak server, here is the configuration steps:
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/yourusername/your-repo.git
+    ```
 
-- create a new realm called `gestion_bien`
-  ![keycloal realm](ressources/create_realm.png)
+2. Navigate to the front-end directory and install dependencies:
+    ```sh
+    cd front_end
+    npm install
+    ```
 
-- create a neww client called `gestion_bien_client` and set the configuration as follows:
-  ![keycloal client](ressources/create_client1.png)
-  ![keycloal client](ressources/create_client2.png)
+3. Navigate to the back-end directory and build the services:
+    ```sh
+    cd gestion_bien_backend
+    mvn clean install
+    ```
 
-- create two roles `admin` and `user`:
-  ![keycloal roles](ressources/create_roles.png)
+### Running the Project
 
-- create two users `admin` and `user` and assign the roles to them
+#### Front-End
 
-- configure the realm setting as follows (or as you like):
-  ![keycloal realm settings](ressources/realm_settings.png)
+1. Navigate to the front-end directory:
+    ```sh
+    cd front_end
+    ```
+
+2. Start the Angular development server:
+    ```sh
+    ng serve
+    ```
+
+3. Open your browser and go to `http://localhost:4200`.
+
+#### Back-End
+
+1. Navigate to the back-end directory:
+    ```sh
+    cd gestion_bien_backend
+    ```
+
+2. Start the Docker containers:
+    ```sh
+    docker-compose up
+    ```
+
+## Keycloak Configuration
+
+The first thing to do after cloning the project is to configure the Keycloak server. Here are the configuration steps:
+
+1. Create a new realm called `gestion_bien`
+   ![keycloak realm](ressources/create_realm.png)
+
+2. Create a new client called `gestion_bien_client` and set the configuration as follows:
+   ![keycloak client](ressources/create_client1.png)
+   ![keycloak client](ressources/create_client2.png)
+
+3. Create two roles `admin` and `user`:
+   ![keycloak roles](ressources/create_roles.png)
+
+4. Create two users `admin` and `user` and assign the roles to them.
+
+5. Configure the realm settings as follows (or as you like):
+   ![keycloak realm settings](ressources/realm_settings.png)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to reach out to us at [a.akanoun@edu.umi.ac.ma](mailto:a.akanoun@edu.umi.ac.ma).
   

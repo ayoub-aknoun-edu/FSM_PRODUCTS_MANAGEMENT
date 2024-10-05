@@ -4,15 +4,8 @@
     <input matInput placeholder="Filter" (keyup)="applyFilter($event)" />
   </mat-form-field>
 </div>
-<mat-table [dataSource]="dataSource" matSort>
-  <!-- Product Id Column -->
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell *matCellDef="let product">
-      {{ product.id }}
-    </mat-cell>
-  </ng-container>
-
+<div class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort>
   <!-- Reference Column -->
   <ng-container matColumnDef="reference">
     <mat-header-cell *matHeaderCellDef> Reference </mat-header-cell>
@@ -60,7 +53,7 @@
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-</mat-table>
+</table>
 <mat-paginator
   [pageSizeOptions]="[5, 10, 20]"
   showFirstLastButtons
@@ -70,4 +63,5 @@
 
 <div *ngIf="products.length === 0">
   <p>No products available for the selected tag.</p>
+</div>
 </div>
